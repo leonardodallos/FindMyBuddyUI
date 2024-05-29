@@ -1,0 +1,79 @@
+<h2 mat-dialog-title>{{buddy ? 'Edit' : 'New Buddy'}}</h2>
+<mat-dialog-content>
+  <form [formGroup]="buddyForm" class="myForm" id="buddy-form">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        placeholder="Name"
+        [formControl]="buddyForm.controls['name']"
+        (blur)="updateErrorMessage()"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        placeholder="description"
+        [formControl]="buddyForm.controls['description']"
+        (blur)="updateErrorMessage()"
+        required
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Breed</mat-label>
+      <input
+        matInput
+        placeholder="breed"
+        [formControl]="buddyForm.controls['breed']"
+        (blur)="updateErrorMessage()"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Age (in years)</mat-label>
+      <input
+        matInput
+        type="number"
+        placeholder="Age"
+        [formControl]="buddyForm.controls['age']"
+        (blur)="updateErrorMessage()"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Arrive Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Arrive Date"
+        [formControl]="buddyForm.controls['arrivingDate']"
+        required
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-slide-toggle [formControl]="buddyForm.controls['isAdopted']"
+      >Adopted</mat-slide-toggle
+    >
+    <mat-slide-toggle [formControl]="buddyForm.controls['vaccinated']"
+      >Vaccinated</mat-slide-toggle
+    >
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="closeDialog()" color="accent">Cancel</button>
+  <button
+    mat-button
+    type="submit"
+    [disabled]="!buddyForm.valid"
+    form="buddy-form"
+  >
+    Submit
+  </button>
+</mat-dialog-actions>

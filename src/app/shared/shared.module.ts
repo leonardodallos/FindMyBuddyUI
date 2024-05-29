@@ -13,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -31,6 +32,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatCardModule,
     MatFormFieldModule,
     MatSlideToggleModule,
+    MatDialogModule,
   ],
   exports: [
     MatButtonModule,
@@ -46,6 +48,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatCardModule,
     MatFormFieldModule,
     MatSlideToggleModule,
+    MatDialogModule,
   ]
 })
 export class SharedModule { }
