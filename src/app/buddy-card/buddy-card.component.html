@@ -1,0 +1,15 @@
+<section class="listing">
+    <mat-card>
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{buddy.name}}</mat-card-title>
+            <mat-card-subtitle>{{buddy.breed}} - {{buddy.isAdopted ? 'Adopted' : 'Looking for new home!' }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{buddy.description}}</p>
+            <p>Age: {{buddy.age}} year(s)</p>
+            <p>Arrived at: {{buddy.arrivingDate | date:'longDate'}}</p>
+        </mat-card-content>
+    </mat-card>
+  </section>
+  

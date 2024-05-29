@@ -12,6 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [],
@@ -28,7 +29,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSlideToggleModule,
   ],
   exports: [
     MatButtonModule,
@@ -42,7 +44,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSlideToggleModule,
   ]
 })
 export class SharedModule { }
