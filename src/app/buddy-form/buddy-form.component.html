@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>{{buddy ? 'Edit' : 'New Buddy'}}</h2>
 <mat-dialog-content>
-  <form [formGroup]="buddyForm" class="myForm" id="buddy-form">
+  <form [formGroup]="buddyForm" class="myForm" id="buddy-form" (ngSubmit)="submit()">
     <mat-form-field>
       <mat-label>Name</mat-label>
       <input

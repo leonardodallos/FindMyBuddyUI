@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { BuddyFormComponent } from '../buddy-form/buddy-form.component';
+import { BuddyService } from '../buddy.service';
 
 @Component({
   standalone: true,
@@ -14,7 +15,8 @@ import { BuddyFormComponent } from '../buddy-form/buddy-form.component';
 })
 export class BuddyCardComponent {
   @Input() buddy!: Buddy;
-  constructor(public dialog: MatDialog) {}
+  @Input() fetchBuddies!: Function;
+  constructor(public dialog: MatDialog, private buddyService: BuddyService) {}
   openDialog() {
     const dialogRef = this.dialog.open(BuddyFormComponent, {
       height: '700px',
@@ -25,5 +27,11 @@ export class BuddyCardComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  delete(){
+    this.buddyService.deleteBuddy(this.buddy);
+    this.fetchBuddies();
+
   }
 }

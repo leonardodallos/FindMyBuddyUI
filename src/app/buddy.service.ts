@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Buddy } from './buddy';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,8 +40,27 @@ export class BuddyService {
     arrivingDate: new Date(),
   }];
   constructor() { }
+  buddyChange = new Subject<void>();
 
   getAllBuddies(): Buddy[] {
     return this.buddies;
   }
+
+  saveBuddy(buddy: Buddy): void {
+    if (!buddy.id) {
+      buddy.id = this.buddies.length + 1;
+      this.buddies.push(buddy);
+    } else
+    {
+      this.buddies = this.buddies.map(b => b.id === buddy.id ? buddy : b);
+    }
+    console.log(this.buddies);
+    this.buddyChange.next();
+  }
+
+  deleteBuddy(buddy: Buddy): void {
+    this.buddies = this.buddies.filter(b => b.id !== buddy.id);
+    this.buddyChange.next();
+    console.log(this.buddies);
+  } 
 }
